@@ -14,11 +14,14 @@ import {
   Trophy,
   Heart,
   Menu,
-  X
+  X,
+  Pill,
+  MessageCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
-import { useAppStore } from '@/store/useAppStore';
+import { useAuth } from '@/contexts/AuthContext';
+import { useUserPoints } from '@/hooks/useUserPoints';
 
 interface LayoutProps {
   children: ReactNode;
@@ -29,19 +32,23 @@ const navItems = [
   { path: '/child-profile', icon: User, label: 'Child Profile' },
   { path: '/activities', icon: Activity, label: 'Activities' },
   { path: '/therapy', icon: Calendar, label: 'Therapy' },
+  { path: '/medicine', icon: Pill, label: 'Medicine' },
   { path: '/milestones', icon: Target, label: 'Milestones' },
   { path: '/progress', icon: TrendingUp, label: 'Progress' },
   { path: '/videos', icon: Video, label: 'Exercise Videos' },
   { path: '/games', icon: Gamepad2, label: 'Games' },
   { path: '/hospitals', icon: MapPin, label: 'Hospitals' },
   { path: '/resources', icon: BookOpen, label: 'Resources' },
+  { path: '/ai-chat', icon: MessageCircle, label: 'AI Assistant' },
   { path: '/scorecard', icon: Trophy, label: 'Scorecard' },
 ];
 
 export const Layout = ({ children }: LayoutProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const { userPoints } = useAppStore();
+  const { user } = useAuth();
+  const { data: pointsData } = useUserPoints();
+  const userPoints = pointsData || { total_points: 0, streak_days: 0 };
+  const level = Math.floor((userPoints.total_points || 0) / 100) + 1;
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,11 +71,16 @@ export const Layout = ({ children }: LayoutProps) => {
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary">
               <Trophy className="h-4 w-4 text-warning" />
-              <span className="font-semibold text-sm">{userPoints.totalPoints} pts</span>
+              <span className="font-semibold text-sm">{userPoints.total_points || 0} pts</span>
             </div>
             <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-primary/10">
-              <span className="text-sm font-medium">Level {userPoints.level}</span>
+              <span className="text-sm font-medium">Level {level}</span>
             </div>
+            {!user && (
+              <Link to="/auth">
+                <Button variant="hero" size="sm">Sign In</Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile Menu Button */}

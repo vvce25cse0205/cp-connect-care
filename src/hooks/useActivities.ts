@@ -70,9 +70,9 @@ export const useLogActivity = () => {
       // Update user points
       const pointsToAdd = 10 + (activity.engagement_level * 2);
       await supabase.rpc('increment_user_points', { 
-        user_id_param: user.id, 
-        points_to_add: pointsToAdd,
-        activities_to_add: 1
+        p_user_id: user.id, 
+        p_points: pointsToAdd,
+        p_activities: 1
       }).then(() => {
         queryClient.invalidateQueries({ queryKey: ['userPoints'] });
       });
