@@ -3,35 +3,34 @@ import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
 
-export interface TherapySession {
+export interface Medicine {
   id: string;
-  child_id: string;
   user_id: string;
-  therapist_name: string;
-  therapist_type: string;
-  session_date: string;
-  duration_minutes: number;
-  location: string | null;
-  status: string;
+  child_id: string | null;
+  name: string;
+  dosage: string | null;
+  frequency: string | null;
+  timing: string | null;
   notes: string | null;
-  home_exercises: string[] | null;
+  quantity: number;
+  unit: string;
   created_at: string;
   updated_at: string;
 }
 
-export const useTherapySessions = (childId?: string) => {
+export const useMedicines = (childId?: string) => {
   const { user } = useAuth();
 
   return useQuery({
-    queryKey: ['therapySessions', user?.id, childId],
+    queryKey: ['medicines', user?.id, childId],
     queryFn: async () => {
       if (!user) return [];
       
       let query = supabase
-        .from('therapy_sessions')
+        .from('medicines')
         .select('*')
         .eq('user_id', user.id)
-        .order('session_date', { ascending: true });
+        .order('name', { ascending: true });
 
       if (childId) {
         query = query.eq('child_id', childId);
@@ -40,24 +39,24 @@ export const useTherapySessions = (childId?: string) => {
       const { data, error } = await query;
 
       if (error) throw error;
-      return data as TherapySession[];
+      return data as Medicine[];
     },
     enabled: !!user
   });
 };
 
-export const useAddTherapySession = () => {
+export const useAddMedicine = () => {
   const queryClient = useQueryClient();
   const { user } = useAuth();
 
   return useMutation({
-    mutationFn: async (session: Omit<TherapySession, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => {
+    mutationFn: async (medicine: Omit<Medicine, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => {
       if (!user) throw new Error('Not authenticated');
 
       const { data, error } = await supabase
-        .from('therapy_sessions')
+        .from('medicines')
         .insert({
-          ...session,
+          ...medicine,
           user_id: user.id
         })
         .select()
@@ -67,67 +66,55 @@ export const useAddTherapySession = () => {
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['therapySessions'] });
-      toast.success('Therapy session scheduled! 📅');
+      queryClient.invalidateQueries({ queryKey: ['medicines'] });
+      toast.success('Medicine added! 💊');
     },
     onError: (error) => {
-      toast.error('Failed to schedule session: ' + error.message);
+      toast.error('Failed to add medicine: ' + error.message);
     }
   });
 };
 
-export const useCompleteTherapySession = () => {
+export const useUpdateMedicine = () => {
   const queryClient = useQueryClient();
-  const { user } = useAuth();
 
   return useMutation({
-    mutationFn: async (id: string) => {
-      if (!user) throw new Error('Not authenticated');
-
+    mutationFn: async ({ id, ...updates }: Partial<Medicine> & { id: string }) => {
       const { data, error } = await supabase
-        .from('therapy_sessions')
-        .update({ status: 'completed' })
+        .from('medicines')
+        .update(updates)
         .eq('id', id)
         .select()
         .single();
 
       if (error) throw error;
-
-      // Update user points
-      await supabase.rpc('increment_user_points', { 
-        p_user_id: user.id, 
-        p_points: 25,
-        p_sessions: 1
-      }).then(() => {
-        queryClient.invalidateQueries({ queryKey: ['userPoints'] });
-      });
-
       return data;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['therapySessions'] });
+      queryClient.invalidateQueries({ queryKey: ['medicines'] });
+      toast.success('Medicine updated!');
     },
     onError: (error) => {
-      toast.error('Failed to complete session: ' + error.message);
+      toast.error('Failed to update: ' + error.message);
     }
   });
 };
 
-export const useDeleteTherapySession = () => {
+export const useDeleteMedicine = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: async (id: string) => {
       const { error } = await supabase
-        .from('therapy_sessions')
+        .from('medicines')
         .delete()
         .eq('id', id);
 
       if (error) throw error;
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['therapySessions'] });
-      toast.success('Session deleted');
+      queryClient.invalidateQueries({ queryKey: ['medicines'] });
+      toast.success('Medicine removed');
     },
     onError: (error) => {
       toast.error('Failed to delete: ' + error.message);
