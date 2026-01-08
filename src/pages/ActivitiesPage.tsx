@@ -30,6 +30,9 @@ const ActivitiesPage = () => {
     { value: 'cognitive', label: 'Cognitive' },
     { value: 'social', label: 'Social' },
     { value: 'self-care', label: 'Self-Care' },
+    { value: 'aac', label: 'AAC & AI Communication' },
+    { value: 'gait-analysis', label: 'Gait Analysis' },
+    { value: 'smart-monitoring', label: 'Smart Monitoring' },
   ];
 
   const filteredActivities = filter === 'all' 
@@ -79,6 +82,9 @@ const ActivitiesPage = () => {
     cognitive: 'bg-warning/20 text-warning border-warning/30',
     social: 'bg-accent/20 text-accent border-accent/30',
     'self-care': 'bg-muted text-muted-foreground border-muted-foreground/30',
+    'aac': 'bg-blue-500/20 text-blue-600 border-blue-500/30',
+    'gait-analysis': 'bg-purple-500/20 text-purple-600 border-purple-500/30',
+    'smart-monitoring': 'bg-cyan-500/20 text-cyan-600 border-cyan-500/30',
   };
 
   const difficultyBadge: Record<string, string> = {

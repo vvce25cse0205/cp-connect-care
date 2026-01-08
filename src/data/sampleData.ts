@@ -96,6 +96,138 @@ export const sampleActivities: Activity[] = [
       'Make it a daily routine'
     ],
     benefits: ['Builds social skills', 'Increases confidence', 'Improves communication']
+  },
+  // AI & AAC Communication Activities
+  {
+    id: '7',
+    title: 'Customized Speech-to-Text Training',
+    description: 'Train AI to understand your child\'s unique speech patterns for better communication',
+    category: 'aac',
+    duration: 20,
+    difficulty: 'medium',
+    instructions: [
+      'Open the speech training app on a tablet',
+      'Have your child say common words repeatedly',
+      'Record various phrases in a quiet environment',
+      'Practice daily to improve AI recognition accuracy',
+      'Celebrate each successful "translation" by the AI'
+    ],
+    benefits: ['Improves communication independence', 'Builds confidence in speaking', 'Creates personalized voice recognition']
+  },
+  {
+    id: '8',
+    title: 'Predictive Symbol Board Practice',
+    description: 'Use smart tablets with context-aware symbol suggestions for communication',
+    category: 'aac',
+    duration: 15,
+    difficulty: 'easy',
+    instructions: [
+      'Open the AAC app with predictive symbols',
+      'Let the app suggest relevant symbols based on time/location',
+      'Encourage child to select symbols to form sentences',
+      'Practice morning, mealtime, and bedtime routines',
+      'Add new custom symbols as vocabulary grows'
+    ],
+    benefits: ['Faster communication', 'Context-aware suggestions', 'Reduces frustration']
+  },
+  {
+    id: '9',
+    title: 'Picture Exchange Communication (PECS)',
+    description: 'Non-verbal communication using picture cards to express needs',
+    category: 'aac',
+    duration: 15,
+    difficulty: 'easy',
+    instructions: [
+      'Create or print picture cards of common items/activities',
+      'Start with highly motivating items (favorite toys, snacks)',
+      'Child hands picture card to request item',
+      'Immediately give the requested item with verbal praise',
+      'Gradually expand vocabulary of picture cards'
+    ],
+    benefits: ['Enables non-verbal communication', 'Reduces behavioral issues', 'Foundation for language development']
+  },
+  // Gait Analysis & Movement Tracking
+  {
+    id: '10',
+    title: 'Video Gait Recording Session',
+    description: 'Record walking patterns for analysis and tracking progress over time',
+    category: 'gait-analysis',
+    duration: 10,
+    difficulty: 'medium',
+    instructions: [
+      'Set up phone/tablet on a stable surface at hip height',
+      'Create a clear walking path (3-5 meters)',
+      'Record child walking from multiple angles (front, side)',
+      'Note any support equipment used (walker, AFOs)',
+      'Save dated videos for monthly comparison'
+    ],
+    benefits: ['Objective progress tracking', 'Doctor consultation aid', 'Identifies improvement areas']
+  },
+  {
+    id: '11',
+    title: 'Balance & Posture Check',
+    description: 'Assess and practice balanced standing and sitting postures',
+    category: 'gait-analysis',
+    duration: 15,
+    difficulty: 'medium',
+    instructions: [
+      'Use a mirror so child can see themselves',
+      'Practice standing against a wall for alignment',
+      'Hold balanced position for 10-30 seconds',
+      'Take photos to track posture improvements',
+      'Work with therapist to set posture goals'
+    ],
+    benefits: ['Improves body awareness', 'Strengthens core muscles', 'Tracks postural changes']
+  },
+  // Smart Monitoring & Environment
+  {
+    id: '12',
+    title: 'Smart Environment Navigation',
+    description: 'Practice navigating spaces with accessible features and smart devices',
+    category: 'smart-monitoring',
+    duration: 20,
+    difficulty: 'medium',
+    instructions: [
+      'Identify accessible paths in home/school',
+      'Practice triggering automatic doors if available',
+      'Use voice commands to control lights/devices',
+      'Create visual maps of accessible routes',
+      'Practice emergency exit routes'
+    ],
+    benefits: ['Increases independence', 'Builds confidence in navigation', 'Safety awareness']
+  },
+  {
+    id: '13',
+    title: 'Wearable Activity Tracking',
+    description: 'Use fitness trackers to monitor daily movement and set goals',
+    category: 'smart-monitoring',
+    duration: 10,
+    difficulty: 'easy',
+    instructions: [
+      'Set up a simple fitness tracker on wrist/ankle',
+      'Establish baseline activity levels for one week',
+      'Set achievable daily movement goals',
+      'Review progress together each evening',
+      'Celebrate reaching movement milestones'
+    ],
+    benefits: ['Motivates daily activity', 'Provides data for healthcare team', 'Gamifies exercise']
+  },
+  // Cognitive Engagement at Home
+  {
+    id: '14',
+    title: 'Simplified Home Instructions',
+    description: 'Practice following visual instructions for daily tasks',
+    category: 'cognitive',
+    duration: 15,
+    difficulty: 'easy',
+    instructions: [
+      'Create visual step-by-step cards for daily routines',
+      'Use photos of actual items in your home',
+      'Practice one routine at a time (brushing teeth, getting dressed)',
+      'Gradually reduce visual supports as skill improves',
+      'Praise each step completed independently'
+    ],
+    benefits: ['Increases independence', 'Reduces caregiver prompts', 'Builds daily living skills']
   }
 ];
 
