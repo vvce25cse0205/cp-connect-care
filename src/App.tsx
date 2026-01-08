@@ -19,6 +19,11 @@ import ScorecardPage from "./pages/ScorecardPage";
 import MedicinePage from "./pages/MedicinePage";
 import AIChatPage from "./pages/AIChatPage";
 import AuthPage from "./pages/AuthPage";
+import CareTeamPage from "./pages/CareTeamPage";
+import CommunityPage from "./pages/CommunityPage";
+import EquipmentPage from "./pages/EquipmentPage";
+import WellnessPage from "./pages/WellnessPage";
+import SelfCarePage from "./pages/SelfCarePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,6 +51,11 @@ const App = () => (
               <Route path="/scorecard" element={<ScorecardPage />} />
               <Route path="/medicine" element={<MedicinePage />} />
               <Route path="/ai-chat" element={<AIChatPage />} />
+              <Route path="/care-team" element={<CareTeamPage />} />
+              <Route path="/community" element={<CommunityPage />} />
+              <Route path="/equipment" element={<EquipmentPage />} />
+              <Route path="/wellness" element={<WellnessPage />} />
+              <Route path="/self-care" element={<SelfCarePage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>

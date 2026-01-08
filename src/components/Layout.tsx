@@ -16,7 +16,12 @@ import {
   Menu,
   X,
   Pill,
-  MessageCircle
+  MessageCircle,
+  Users,
+  Stethoscope,
+  Wrench,
+  Moon,
+  Sparkles
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -30,15 +35,20 @@ interface LayoutProps {
 const navItems = [
   { path: '/', icon: Home, label: 'Home' },
   { path: '/child-profile', icon: User, label: 'Child Profile' },
+  { path: '/care-team', icon: Stethoscope, label: 'Care Team' },
   { path: '/activities', icon: Activity, label: 'Activities' },
   { path: '/therapy', icon: Calendar, label: 'Therapy' },
   { path: '/medicine', icon: Pill, label: 'Medicine' },
   { path: '/milestones', icon: Target, label: 'Milestones' },
+  { path: '/wellness', icon: Moon, label: 'Wellness' },
+  { path: '/equipment', icon: Wrench, label: 'Equipment' },
   { path: '/progress', icon: TrendingUp, label: 'Progress' },
   { path: '/videos', icon: Video, label: 'Exercise Videos' },
   { path: '/games', icon: Gamepad2, label: 'Games' },
   { path: '/hospitals', icon: MapPin, label: 'Hospitals' },
   { path: '/resources', icon: BookOpen, label: 'Resources' },
+  { path: '/community', icon: Users, label: 'Community' },
+  { path: '/self-care', icon: Sparkles, label: 'Self-Care' },
   { path: '/ai-chat', icon: MessageCircle, label: 'AI Assistant' },
   { path: '/scorecard', icon: Trophy, label: 'Scorecard' },
 ];
