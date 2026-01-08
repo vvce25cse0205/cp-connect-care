@@ -14,7 +14,7 @@ export interface Activity {
   id: string;
   title: string;
   description: string;
-  category: 'motor' | 'communication' | 'cognitive' | 'social' | 'self-care' | 'sensory';
+  category: 'motor' | 'communication' | 'cognitive' | 'social' | 'self-care' | 'sensory' | 'aac' | 'gait-analysis' | 'smart-monitoring';
   duration: number; // in minutes
   difficulty: 'easy' | 'medium' | 'hard';
   instructions: string[];
