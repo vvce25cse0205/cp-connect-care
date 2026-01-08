@@ -70,6 +70,59 @@ export type Database = {
           },
         ]
       }
+      care_team: {
+        Row: {
+          address: string | null
+          child_id: string | null
+          clinic_name: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          notes: string | null
+          phone: string | null
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address?: string | null
+          child_id?: string | null
+          clinic_name?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          role: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string | null
+          child_id?: string | null
+          clinic_name?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "care_team_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       children: {
         Row: {
           avatar_url: string | null
@@ -111,6 +164,62 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      equipment: {
+        Row: {
+          child_id: string | null
+          created_at: string
+          id: string
+          last_maintenance: string | null
+          name: string
+          next_maintenance: string | null
+          notes: string | null
+          purchase_date: string | null
+          serial_number: string | null
+          size: string | null
+          type: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_id?: string | null
+          created_at?: string
+          id?: string
+          last_maintenance?: string | null
+          name: string
+          next_maintenance?: string | null
+          notes?: string | null
+          purchase_date?: string | null
+          serial_number?: string | null
+          size?: string | null
+          type: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_id?: string | null
+          created_at?: string
+          id?: string
+          last_maintenance?: string | null
+          name?: string
+          next_maintenance?: string | null
+          notes?: string | null
+          purchase_date?: string | null
+          serial_number?: string | null
+          size?: string | null
+          type?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "equipment_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       medicines: {
         Row: {
@@ -209,6 +318,45 @@ export type Database = {
           },
         ]
       }
+      mood_journal: {
+        Row: {
+          created_at: string
+          energy_level: number | null
+          entry_date: string
+          gratitude: string | null
+          id: string
+          mood_level: number | null
+          notes: string | null
+          self_care_done: string[] | null
+          stress_level: number | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          energy_level?: number | null
+          entry_date?: string
+          gratitude?: string | null
+          id?: string
+          mood_level?: number | null
+          notes?: string | null
+          self_care_done?: string[] | null
+          stress_level?: number | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          energy_level?: number | null
+          entry_date?: string
+          gratitude?: string | null
+          id?: string
+          mood_level?: number | null
+          notes?: string | null
+          self_care_done?: string[] | null
+          stress_level?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -238,6 +386,92 @@ export type Database = {
           phone?: string | null
           relationship?: string | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      sleep_logs: {
+        Row: {
+          bedtime: string | null
+          child_id: string | null
+          created_at: string
+          id: string
+          night_wakings: number | null
+          notes: string | null
+          quality: number | null
+          sleep_date: string
+          total_hours: number | null
+          user_id: string
+          wake_time: string | null
+        }
+        Insert: {
+          bedtime?: string | null
+          child_id?: string | null
+          created_at?: string
+          id?: string
+          night_wakings?: number | null
+          notes?: string | null
+          quality?: number | null
+          sleep_date: string
+          total_hours?: number | null
+          user_id: string
+          wake_time?: string | null
+        }
+        Update: {
+          bedtime?: string | null
+          child_id?: string | null
+          created_at?: string
+          id?: string
+          night_wakings?: number | null
+          notes?: string | null
+          quality?: number | null
+          sleep_date?: string
+          total_hours?: number | null
+          user_id?: string
+          wake_time?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sleep_logs_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      success_stories: {
+        Row: {
+          category: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          is_anonymous: boolean | null
+          likes_count: number | null
+          story: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          is_anonymous?: boolean | null
+          likes_count?: number | null
+          story: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          is_anonymous?: boolean | null
+          likes_count?: number | null
+          story?: string
+          title?: string
           user_id?: string
         }
         Relationships: []
