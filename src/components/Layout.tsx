@@ -109,8 +109,8 @@ export const Layout = ({ children }: LayoutProps) => {
 
       <div className="flex">
         {/* Desktop Sidebar */}
-        <aside className="hidden md:flex w-64 flex-col border-r bg-sidebar min-h-[calc(100vh-4rem)] sticky top-16">
-          <nav className="flex-1 space-y-1 p-4">
+        <aside className="hidden md:flex w-64 flex-col border-r bg-sidebar h-[calc(100vh-4rem)] sticky top-16 overflow-y-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+          <nav className="flex-1 space-y-1 p-4 pb-8">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -138,8 +138,8 @@ export const Layout = ({ children }: LayoutProps) => {
               className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
               onClick={() => setMobileMenuOpen(false)}
             />
-            <aside className="absolute left-0 top-16 bottom-0 w-72 bg-sidebar border-r animate-slide-up">
-              <nav className="flex-1 space-y-1 p-4">
+            <aside className="absolute left-0 top-16 bottom-0 w-72 bg-sidebar border-r animate-slide-up overflow-y-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
+              <nav className="flex-1 space-y-1 p-4 pb-8">
                 {navItems.map((item) => {
                   const isActive = location.pathname === item.path;
                   return (
