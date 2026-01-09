@@ -21,7 +21,8 @@ import {
   Stethoscope,
   Wrench,
   Moon,
-  Sparkles
+  Sparkles,
+  FileText
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -39,6 +40,7 @@ const navItems = [
   { path: '/activities', icon: Activity, label: 'Activities' },
   { path: '/therapy', icon: Calendar, label: 'Therapy' },
   { path: '/medicine', icon: Pill, label: 'Medicine' },
+  { path: '/medical-records', icon: FileText, label: 'Medical Records' },
   { path: '/milestones', icon: Target, label: 'Milestones' },
   { path: '/wellness', icon: Moon, label: 'Wellness' },
   { path: '/equipment', icon: Wrench, label: 'Equipment' },

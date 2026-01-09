@@ -221,6 +221,68 @@ export type Database = {
           },
         ]
       }
+      medical_records: {
+        Row: {
+          child_id: string | null
+          created_at: string
+          description: string | null
+          doctor_name: string | null
+          file_name: string | null
+          file_url: string | null
+          hospital_name: string | null
+          id: string
+          is_emergency: boolean | null
+          notes: string | null
+          record_date: string
+          record_type: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          child_id?: string | null
+          created_at?: string
+          description?: string | null
+          doctor_name?: string | null
+          file_name?: string | null
+          file_url?: string | null
+          hospital_name?: string | null
+          id?: string
+          is_emergency?: boolean | null
+          notes?: string | null
+          record_date?: string
+          record_type?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          child_id?: string | null
+          created_at?: string
+          description?: string | null
+          doctor_name?: string | null
+          file_name?: string | null
+          file_url?: string | null
+          hospital_name?: string | null
+          id?: string
+          is_emergency?: boolean | null
+          notes?: string | null
+          record_date?: string
+          record_type?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "medical_records_child_id_fkey"
+            columns: ["child_id"]
+            isOneToOne: false
+            referencedRelation: "children"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       medicines: {
         Row: {
           child_id: string | null
@@ -386,6 +448,48 @@ export type Database = {
           phone?: string | null
           relationship?: string | null
           updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      reminders: {
+        Row: {
+          created_at: string
+          description: string | null
+          frequency: string
+          id: string
+          is_active: boolean | null
+          last_triggered: string | null
+          reminder_date: string | null
+          reminder_time: string | null
+          reminder_type: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          frequency?: string
+          id?: string
+          is_active?: boolean | null
+          last_triggered?: string | null
+          reminder_date?: string | null
+          reminder_time?: string | null
+          reminder_type?: string
+          title: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          frequency?: string
+          id?: string
+          is_active?: boolean | null
+          last_triggered?: string | null
+          reminder_date?: string | null
+          reminder_time?: string | null
+          reminder_type?: string
+          title?: string
           user_id?: string
         }
         Relationships: []

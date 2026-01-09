@@ -24,7 +24,9 @@ import CommunityPage from "./pages/CommunityPage";
 import EquipmentPage from "./pages/EquipmentPage";
 import WellnessPage from "./pages/WellnessPage";
 import SelfCarePage from "./pages/SelfCarePage";
+import MedicalRecordsPage from "./pages/MedicalRecordsPage";
 import NotFound from "./pages/NotFound";
+import { ReminderPopup } from "./components/ReminderPopup";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +37,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ReminderPopup />
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -56,6 +59,7 @@ const App = () => (
               <Route path="/equipment" element={<EquipmentPage />} />
               <Route path="/wellness" element={<WellnessPage />} />
               <Route path="/self-care" element={<SelfCarePage />} />
+              <Route path="/medical-records" element={<MedicalRecordsPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>

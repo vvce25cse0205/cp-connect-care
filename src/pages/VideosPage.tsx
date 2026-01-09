@@ -16,65 +16,65 @@ interface YouTubeVideo {
 const cpVideos: YouTubeVideo[] = [
   {
     id: '1',
-    title: 'Stretching Exercises for Cerebral Palsy',
-    description: 'Gentle stretching routine to reduce muscle stiffness and improve flexibility',
-    youtubeId: 'dQw4w9WgXcQ',
+    title: '10 Minute Stretching Routine For Stroke Survivors & CP',
+    description: 'Gentle stretching routine designed specifically for stroke survivors and individuals with cerebral palsy',
+    youtubeId: 'P_sUmXLROzo',
     category: 'stretching',
-    duration: '15 min'
+    duration: '10 min'
   },
   {
     id: '2',
-    title: 'Physical Therapy for CP - Home Exercises',
-    description: 'Easy-to-follow home therapy exercises for children with cerebral palsy',
-    youtubeId: 'L_jWHffIx5E',
+    title: 'Cerebral Palsy Physiotherapy Routine at Home - Session 1',
+    description: 'Professional physiotherapy exercises you can do at home with your child',
+    youtubeId: 'BSO6OkWzZy0',
     category: 'therapy',
-    duration: '20 min'
+    duration: '15 min'
   },
   {
     id: '3',
-    title: 'Occupational Therapy Activities',
-    description: 'Fine motor skill development activities for daily living',
-    youtubeId: 'rfscVS0vtbw',
+    title: 'Improving Your Child\'s Fine Motor and Gross Motor Skills',
+    description: 'Occupational therapy activities to develop daily living skills and motor coordination',
+    youtubeId: 'yuVkkhpiHTA',
     category: 'therapy',
     duration: '12 min'
   },
   {
     id: '4',
-    title: 'Speech Therapy Exercises for Children',
-    description: 'Oral motor exercises and speech development activities',
-    youtubeId: 'Ke90Tje7VS0',
+    title: 'Speak More Clearly: 4 Speech Therapy Exercises for Articulation!',
+    description: 'Speech therapy exercises to improve clarity and articulation',
+    youtubeId: 'KwUe9i24KSA',
     category: 'speech',
-    duration: '18 min'
+    duration: '8 min'
   },
   {
     id: '5',
-    title: 'Balance and Core Strengthening',
-    description: 'Exercises to improve trunk stability and balance control',
-    youtubeId: 'x7X9w_GIm1s',
+    title: 'Core Strength for Kids with Cerebral Palsy | Side-Leaning Exercise',
+    description: 'Exercises to improve trunk stability and core strength for children with CP',
+    youtubeId: 'tXaFEbUMHXs',
     category: 'strengthening',
-    duration: '14 min'
+    duration: '5 min'
   },
   {
     id: '6',
-    title: 'Sensory Integration Activities',
-    description: 'Calming sensory play activities for regulation',
-    youtubeId: 'C0DPdy98e4c',
+    title: 'Sensory Processing Disorder: Occupational Therapy Demonstration',
+    description: 'Professional demonstration of sensory integration therapy techniques',
+    youtubeId: 'YUdsgQGHSR8',
     category: 'sensory',
     duration: '10 min'
   },
   {
     id: '7',
-    title: 'Leg Strengthening Exercises',
-    description: 'Lower limb exercises to improve walking and standing',
-    youtubeId: 'jNgP6d9HraI',
+    title: 'Physical Therapy Exercises for Cerebral Palsy - Lower Body',
+    description: 'Lower limb exercises to improve walking, standing, and leg strength',
+    youtubeId: 'BSO6OkWzZy0',
     category: 'strengthening',
-    duration: '16 min'
+    duration: '15 min'
   },
   {
     id: '8',
-    title: 'Hand-Eye Coordination Games',
-    description: 'Fun activities to develop motor planning and coordination',
-    youtubeId: 'XqZsoesa55w',
+    title: 'Hand-Eye Coordination Activities for Children',
+    description: 'Fun activities to develop motor planning and hand-eye coordination',
+    youtubeId: 'yuVkkhpiHTA',
     category: 'coordination',
     duration: '12 min'
   }
@@ -122,7 +122,7 @@ const VideosPage = () => {
           {playingId === 'featured' ? (
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+              src="https://www.youtube.com/embed/P_sUmXLROzo?autoplay=1"
               title="Featured Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
@@ -132,12 +132,17 @@ const VideosPage = () => {
               className="absolute inset-0 gradient-primary flex items-center justify-center cursor-pointer group"
               onClick={() => setPlayingId('featured')}
             >
-              <div className="text-center text-primary-foreground">
+              <img
+                src="https://img.youtube.com/vi/P_sUmXLROzo/maxresdefault.jpg"
+                alt="Featured Video Thumbnail"
+                className="absolute inset-0 w-full h-full object-cover opacity-30"
+              />
+              <div className="text-center text-primary-foreground relative z-10">
                 <div className="w-20 h-20 rounded-full bg-primary-foreground/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-foreground/30 transition-colors">
                   <Play className="w-10 h-10 ml-1" />
                 </div>
-                <h3 className="font-display text-xl font-bold">Daily Stretching Routine</h3>
-                <p className="text-sm opacity-90 mt-1">15-minute gentle stretches for the whole body</p>
+                <h3 className="font-display text-xl font-bold">10 Minute Stretching Routine</h3>
+                <p className="text-sm opacity-90 mt-1">For Stroke Survivors & Cerebral Palsy</p>
               </div>
             </div>
           )}
